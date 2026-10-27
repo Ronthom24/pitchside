@@ -4,7 +4,7 @@
 animated tactics diagrams, interactive positions and formation tools, and a database of real clubs, players and
 competitions, with live fixtures and tables from a pluggable data provider.
 
-> **Live demo:** _add your deployed URL here_ · **API docs:** _`/docs` on the deployed API_
+> **Live demo:** https://pitchside-drab.vercel.app · **API docs:** https://pitchside-2c5l.onrender.com/docs (free tier: first request may take ~30-50 s to wake)
 
 ![Home](docs/screenshots/home.jpg)
 

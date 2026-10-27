@@ -92,13 +92,15 @@ export default function Home() {
             </Link>
             <Link to="/clubs" className="inline-flex items-center gap-2 rounded-full ring-1 ring-white/25 text-chalk-50 font-semibold px-7 py-3.5 hover:bg-white/5 transition-colors">Explore football</Link>
           </motion.div>
+          <div className="mt-14 min-h-[3rem]">
           {counts && (
-            <motion.dl initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-14 mx-auto flex flex-wrap justify-center gap-x-10 gap-y-4 text-center">
+            <motion.dl initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mx-auto flex flex-wrap justify-center gap-x-10 gap-y-4 text-center">
               {[[lessons.length, 'lessons'], [counts.clubs, 'clubs'], [counts.players, 'players'], [counts.comps, 'competitions']].map(([n, l]) => (
                 <div key={l as string}><dt className="sr-only">{l}</dt><dd><span className="font-display text-3xl text-chalk-50">{n}</span> <span className="text-sm text-chalk-400">{l}</span></dd></div>
               ))}
             </motion.dl>
           )}
+          </div>
         </div>
       </section>
 

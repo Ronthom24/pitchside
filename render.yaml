@@ -1,4 +1,4 @@
-# Render Blueprint: backend API as a Docker web service (free plan).
+# Render Blueprint: backend API (SQLite, no external DB) as a Docker web service (free plan).
 # Frontend goes on Vercel (root directory: frontend). See README "Deploy".
 services:
   - type: web
@@ -11,8 +11,8 @@ services:
     dockerCommand: sh -c "python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     healthCheckPath: /api/health
     envVars:
-      - key: DATABASE_URL
-        sync: false   # Neon connection string
+      # No DATABASE_URL: the app falls back to a local SQLite file, re-seeded on
+      # every boot. To use Postgres (e.g. Neon) instead, add DATABASE_URL here.
       - key: JWT_SECRET
         generateValue: true
       - key: CORS_ORIGINS

@@ -35,7 +35,7 @@ competitions, with live fixtures and tables from a pluggable data provider.
 |---|---|
 | Frontend | React 19, TypeScript, Vite, React Router, Tailwind CSS v4, Framer Motion |
 | Backend | Python, FastAPI, async SQLAlchemy 2, Pydantic |
-| Database | PostgreSQL (Neon) in production, SQLite locally |
+| Database | SQLite by default (seeded on boot); PostgreSQL (e.g. Neon) supported via `DATABASE_URL` |
 | Auth | bcrypt + JWT (built and tested; the UI is switched off by a feature flag) |
 | Quality | pytest (24 tests), a seed-data integrity checker, strict TypeScript, GitHub Actions CI |
 

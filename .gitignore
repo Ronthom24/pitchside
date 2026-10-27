@@ -1,0 +1,18 @@
+# secrets and local state
+.env
+.env.*
+!.env.example
+*.db
+*.log
+
+# python
+venv/
+__pycache__/
+.pytest_cache/
+
+# node
+node_modules/
+dist/
+
+# old single-file prototype kept for reference
+_archive_old/

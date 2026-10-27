@@ -1,0 +1,21 @@
+# Render Blueprint: backend API as a Docker web service (free plan).
+# Frontend goes on Vercel (root directory: frontend). See README "Deploy".
+services:
+  - type: web
+    name: pitchside-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    # Seed is idempotent (upserts content only), so it is safe on every boot.
+    dockerCommand: sh -c "python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false   # Neon connection string
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false   # your Vercel URL, e.g. https://pitchside.vercel.app
+      - key: FOOTBALL_API_KEY
+        sync: false   # optional; leave blank to run without live data
